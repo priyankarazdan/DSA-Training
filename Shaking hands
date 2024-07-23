@@ -1,0 +1,21 @@
+Objective:
+Six business people meet for lunch and shake hands with each other.
+How many handshakes are there?
+Example If two people shake hands there is one handshake. If three people shake hands there are 3 handshakes. If four people shake hands there are 3 more handshakes so 3 + 3 = 6 in total. If five people shake hands there are another 4 handshakes so 6 + 4 = 10. For 6 people there are another 5 handshakes so 10 + 5 = 15.
+
+
+
+#include <iostream>
+using namespace std;
+int main() {
+  int N;
+    cin >> N;
+   
+    if (N < 2 || N > 100) {
+        return 1; 
+    }
+   
+    int handshakes = (N * (N - 1)) / 2;
+    cout << handshakes << endl;
+    return 0;
+}
