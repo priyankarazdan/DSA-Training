@@ -1,0 +1,38 @@
+Objective:
+You are given an array prices where prices[i] is the price of a given stock on the ith day.
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+You have to solve same problem on leetcode platform.
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+   
+    int* prices = new int[n];
+   
+    for(int i = 0; i < n; ++i) {
+        cin >> prices[i];
+    }
+
+    const int MAX_INT = 100000;
+    int min_price = MAX_INT;
+    int max_profit = 0;
+   
+    for(int i = 0; i < n; ++i) {
+        if(prices[i] < min_price) {
+            min_price = prices[i];
+        } else if(prices[i] - min_price > max_profit) {
+            max_profit = prices[i] - min_price;
+        }
+    }
+   
+    cout << max_profit << endl;
+   
+    delete[] prices;
+   
+    return 0;
+}
