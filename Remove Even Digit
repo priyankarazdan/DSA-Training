@@ -1,0 +1,27 @@
+Problem Statement:
+Andy is working in a XYZ Company. Company assign a task to Andy that design an application that remove all even digits from a number. Help Andy to design this application.
+
+#include <iostream>
+using namespace std;
+int main() {
+        string n;
+    cin >> n;
+       string result = "";
+   
+    for (char digit : n) {
+        int num = digit - '0';
+       
+        if (num % 2 != 0) {
+            result += digit;
+        }
+    }
+   
+    if (result.empty()) {
+        cout << "0" << endl;
+    } else {
+        cout << result << endl;
+    }
+   
+    return 0;
+}
+    
