@@ -1,0 +1,64 @@
+Problem Statement:
+Jack and Jill were going through a jungle to city. They encountered a monster who told they will only be allowed to escape when they solve a puzzle for him. They didn't have a choice so they agreed.
+He states problem like : I have n buckets having 0 fruits in each bucket initially. I will give you n numbers denoting fruits required at nth position. But you need to keep 2 simple rules:
+Either you can increment fruit count by 1 in each bucket i.e. Incremental Operation
+Or you can double the fruits in each bucket i.e. Doubling operation.
+
+
+
+#include <iostream>
+using namespace std;
+int main() { int n,i,j,count=0;
+    cin>>n;
+    int arr[n];
+    for(i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    while(true)
+    {
+        int zero=0;
+        for(j=0;j<n;j++)
+        {
+            if(arr[j]!=0)
+            {
+                zero=1;
+                break;
+            }
+        }
+        if(zero==0)
+            break;
+        else
+        {
+            int even=0;
+            for(j=0;j<n;j++)
+            {
+                if(arr[j]%2==1)
+                {
+                    even=1;
+                    break;
+                }
+            }
+            if(even==0)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    arr[j]=arr[j]/2;
+                }count++;
+            }
+            else
+            {
+                for(int j=0;j<n;j++)
+                {
+                    if(arr[j]%2!=0)
+                    {
+                        arr[j]=arr[j]-1;
+                        count++;
+                    }
+                }
+            }
+        }
+    }
+    cout<<count;
+    return 0;
+}
