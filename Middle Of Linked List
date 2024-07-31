@@ -1,0 +1,14 @@
+Problem statement:
+Given a singly linked list of 'N' nodes. The objective is to determine the middle node of a singly linked list. However, if the list has an even number of nodes, we return the second middle node.
+
+
+Node *findMiddle(Node *head) 
+{
+    Node * p1 = head;
+    Node * p2 = head;
+    while (p1 != NULL && p1->next != NULL) {
+      p1 = p1->next->next;
+      p2 = p2->next;
+    }
+    return p2;
+}
