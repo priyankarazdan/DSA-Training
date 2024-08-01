@@ -1,0 +1,21 @@
+Problem statement:
+You are given a Singly Linked List of integers. Return true if it has a cycle, else return false.
+A cycle occurs when a node's next points back to a previous node in the list
+
+
+#include<unordered_set>
+using namespace std;
+bool detectCycle(Node *head)
+{
+	unordered_set<Node*> obj;
+    Node *temp = head;
+    while(temp != NULL){
+        if(obj.find(temp) != obj.end())
+        return true;
+        else{
+            obj.insert(temp);
+            temp = temp->next; 
+        }
+    }
+    return false;
+}
