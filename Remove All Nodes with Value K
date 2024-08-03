@@ -1,0 +1,20 @@
+Problem statement:
+You are given a Singly Linked List of integers and an integer 'K'. Your task is to remove all such nodes from the linked list whose value is equal to 'K'.
+A singly linked list is a linear data structure in which we can traverse only in one direction i.e., from Head to Tail. It consists of several nodes where each node contains some data and a reference to the next node.
+
+
+Node *removeNodes(Node *head, int k) {
+    if(head == NULL)
+        return NULL;
+
+    Node *temp = removeNodes(head->next,k);
+    head->next = temp;
+
+    if((head->data)==k)
+    {
+        return head->next;
+    }
+    else
+        return head;
+    
+}
