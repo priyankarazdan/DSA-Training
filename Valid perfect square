@@ -1,0 +1,12 @@
+Problem statement
+You have been given an integer ‘N’. You are supposed to find if the given integer ‘N’ is a perfect square or not. A perfect square is an integer that is the square of an integer.
+
+
+
+#include <bits/stdc++.h> 
+bool isPerfectSquare(long long n) {
+	if(n>0){
+		long long x = sqrt(n);
+		return (x*x) == n;
+	}
+}
