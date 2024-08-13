@@ -1,0 +1,46 @@
+Problem Statement:
+Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.
+Basically, the deletion can be divided into two stages:
+Search for a node to remove.
+If the node is found, delete the node.
+
+
+
+class Solution {
+public:
+  TreeNode *temp=NULL;
+  TreeNode* deleteNode(TreeNode* root, int key) {
+    vector<int> arr;
+    if(preorder(root,arr,key)){
+      for(int i:arr){
+        temp = insert(temp,i);
+    }
+    }
+    return temp;
+  }
+  bool preorder(TreeNode* root,vector<int>&arr,int key){
+    static bool flag = false;
+    if(root!=NULL){
+      if(root->val == key){
+        flag = true;
+      }
+      else{
+        arr.push_back(root->val);
+      }
+      preorder(root->left,arr,key);
+      preorder(root->right,arr,key);
+    }
+    return flag;
+  }
+  TreeNode* insert(TreeNode *temp,int val){
+    if(temp == NULL) {
+      return new TreeNode(val);
+    }
+    if (val < temp->val) {
+      temp->left = insert(temp->left, val);
+    } else {
+      temp->right = insert(temp->right, val);
+    }
+    return temp;
+  }
+};
