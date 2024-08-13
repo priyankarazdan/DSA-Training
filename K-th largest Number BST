@@ -1,0 +1,27 @@
+Problem statement:
+You are given a binary search tree of integers with 'N' nodes. Your task is to return the K-th largest element of this BST.
+If there is no K-th largest element in the BST, return -1.
+A binary search tree (BST) is a binary tree data structure which has the following properties.
+• The left subtree of a node contains only nodes with data less than the node’s data.
+• The right subtree of a node contains only nodes with data greater than the node’s data.
+• Both the left and right subtrees must also be binary search trees.
+
+
+
+void inorder(TreeNode<int> *root,vector<int>&vec){
+    if(root!=NULL){
+        inorder(root->left,vec);
+        vec.push_back(root->data);
+        inorder(root->right,vec);
+    }
+}
+int KthLargestNumber(TreeNode<int>* root, int k) 
+{
+    vector<int> vec;
+    inorder(root,vec);
+    int size = vec.size();
+    if(size<k){
+        return -1;
+    }
+    return vec[size-k];
+}
